@@ -1,1 +1,44 @@
-/Users/yfwang/.vimrc.bundles.local
+Bundle 'junegunn/vim-easy-align'
+Bundle 'ianva/vim-youdao-translater'
+"Bundle 'mhinz/vim-startify'
+Bundle 'Valloric/YouCompleteMe'
+" youdao translate {
+     vnoremap <silent> <C-T> <Esc>:Ydv<CR>
+     nnoremap <silent> <C-T> <Esc>:Ydc<CR>
+     noremap <leader>yd :Yde<CR>
+" }"
+
+" Gundo {
+    if count(g:spf13_bundle_groups, 'writing')
+        Bundle 'sjl/gundo.vim'
+        nnoremap <F5> :GundoToggle<CR>
+    endif
+
+    try
+        set undodir=~/.vim/temp_dirs/undodir
+        set undofile
+    catch
+    endtry
+"“ }
+"Airline {
+    let g:airline_detect_whitespace          = 0     "关闭空白符检测
+    "let g:airline#extensions#tabline#enabled = 1    "顶部tab栏显示
+    let g:airline#extensions#tabline#left_sep = ' '
+    let g:airline#extensions#tabline#left_alt_sep = '|'
+"}
+
+""""""""""""""""""""""""""""""
+" Tagbar setting
+""""""""""""""""""""""""""""""
+let g:tagbar_width=35
+let g:tagbar_autoclose=1 "在一个tag上按回车后，自动跳转到tag在文件的位置，并关闭tagbar
+nnoremap <F6> :TagbarToggle<CR>
+
+"YOUCOMPLETEME"
+let g:ycm_error_symbol = '>>'
+let g:ycm_warning_symbol = '>*'
+nnoremap <leader>gl :YcmCompleter GoToDeclaration<CR>
+nnoremap <leader>gf :YcmCompleter GoToDefinition<CR>
+nnoremap <leader>gg :YcmCompleter GoToDefinitionElseDeclaration<CR>
+nmap <F4> :YcmDiags<CR>
+
