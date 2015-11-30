@@ -106,12 +106,10 @@ setjdk() {
   export JAVA_HOME=$(/usr/libexec/java_home -v $1)
 }
 
-export PATH=$PATH:/Applications/Postgres.app/Contents/Versions/9.4/bin 
+export PATH=$PATH:/Applications/Postgres.app/Contents/Versions/9.4/bin
 export DOCKER_HOST=tcp://192.168.59.103:2376
 export DOCKER_CERT_PATH=/Users/yfwang/.boot2docker/certs/boot2docker-vm
 export DOCKER_TLS_VERIFY=1
-eval $(thefuck --alias)
-eval "$(thefuck --alias FUCK)"
 
 export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"
@@ -122,3 +120,6 @@ eval "$(rbenv init -)"
   #export PATH="${RBENV_ROOT}/bin:${PATH}"
   #eval "$(rbenv init -)"
 #fi
+eval "$(thefuck --alias)"
+# You can use whatever you want as an alias, like for Mondays:
+eval "$(thefuck --alias FUCK)"
