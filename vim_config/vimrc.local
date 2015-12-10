@@ -33,3 +33,7 @@ au BufNewFile,BufReadPost,FilterReadPost,FileReadPost  * set nospell
 "设置缩进"
 set ts=2
 set sw=2
+
+"映射buffer next 为 tab"
+map <s-tab> :bp<cr>
+map <tab> :bn<cr>
