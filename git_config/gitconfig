@@ -1,0 +1,28 @@
+[filter "hawser"]
+	clean = git hawser clean %f
+	smudge = git hawser smudge %f
+	required = true
+[user]
+	name = yfwang
+	email = yfwang@thoughtworks.com
+[push]
+	default = simple
+[core]
+	autocrlf = input
+[alias]
+	co = checkout
+	br = branch
+	ci = commit
+	st = status
+	last = log -1 HEAD
+	ap = add -p
+	s = status
+	pr = pull --rebase
+	pbr = push --set-upstream origin
+	visual = !gitk
+[color]
+	ui = true
+[filter "lfs"]
+	clean = git-lfs clean %f
+	smudge = git-lfs smudge %f
+	required = true
