@@ -15,7 +15,7 @@ autocmd BufRead,BufNewFile *.md set filetype=markdown
 autocmd Syntax javascript set syntax=jquery
 
 " Color scheme
-set background=dark
+"set background=dark
 colorscheme molokai
 "highlight NonText guibg=#060606
 "highlight Folded  guibg=#0A0A0A guifg=#9090D0
@@ -45,3 +45,46 @@ inoremap ∆ <Esc>:m .+1<CR>==gi
 inoremap ˚ <Esc>:m .-2<CR>==gi
 vnoremap ∆ :m '>+1<CR>gv=gv
 vnoremap ˚ :m '<-2<CR>gv=gv
+
+"添加tmux下vim颜色显示问题以及调整光标的形状
+if exists('$TMUX')
+  set term=screen-256color
+endif
+
+if exists('$TMUX')
+  let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
+  let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
+else
+  let &t_SI = "\<Esc>]50;CursorShape=1\x7"
+  let &t_EI = "\<Esc>]50;CursorShape=0\x7"
+endif
+
+" for tmux to automatically set paste and nopaste mode at the time pasting (as happens in VIM UI)
+"调整粘贴时的文本缩进
+function! WrapForTmux(s)
+  if !exists('$TMUX')
+    return a:s
+  endif
+
+  let tmux_start = "<Esc>Ptmux;"
+  let tmux_end = "<Esc>"
+
+  return tmux_start . substitute(a:s, "<Esc>", "<Esc><Esc>", 'g') . tmux_end
+endfunction
+
+let &t_SI .= WrapForTmux("<Esc>[?2004h")
+let &t_EI .= WrapForTmux("<Esc>[?2004l")
+
+function! XTermPasteBegin()
+  set pastetoggle=<Esc>[201~
+  set paste
+  return ""
+endfunction
+
+inoremap <special> <expr> <Esc>[200~ XTermPasteBegin()
+
+"关闭光标十字线
+"set nocursorline  "关闭当前行
+"set cul  "缩写
+set nocursorcolumn  "关闭当前列
+"set cuc  "缩写
