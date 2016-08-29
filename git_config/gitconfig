@@ -9,6 +9,7 @@
 	default = simple
 [core]
 	autocrlf = input
+	excludesfile = /Users/yfwang/.gitignore_global
 [alias]
 	co = checkout
 	br = branch
@@ -26,3 +27,9 @@
 	clean = git-lfs clean %f
 	smudge = git-lfs smudge %f
 	required = true
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
+[mergetool "sourcetree"]
+	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
