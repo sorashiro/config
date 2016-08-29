@@ -217,7 +217,7 @@
 
 " Formatting {
 
-    set nowrap                      " Do not wrap long lines
+    "set nowrap                      " Do not wrap long lines
     set autoindent                  " Indent at the same level of the previous line
     set shiftwidth=4                " Use indents of 4 spaces
     set expandtab                   " Tabs are spaces, not tabs
@@ -998,7 +998,7 @@
 
         " See `:echo g:airline_theme_map` for some more choices
         " Default in terminal vim is 'dark'
-        if isdirectory(expand("~/.vim/bundle/vim-airline/"))
+        if isdirectory(expand("~/.vim/bundle/vim-airline/vim-airline-themes"))
             if !exists('g:airline_theme')
                 let g:airline_theme = 'solarized'
             endif

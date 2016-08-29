@@ -2,6 +2,7 @@ Bundle 'junegunn/vim-easy-align'
 Bundle 'ianva/vim-youdao-translater'
 "Bundle 'mhinz/vim-startify'
 Bundle 'Valloric/YouCompleteMe'
+Bundle 'digitaltoad/vim-jade'
 " youdao translate {
      vnoremap <silent> <C-T> <Esc>:Ydv<CR>
      nnoremap <silent> <C-T> <Esc>:Ydc<CR>
