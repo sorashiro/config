@@ -60,6 +60,7 @@ source $ZSH/oh-my-zsh.sh
 
 ## You may need to manually set your language environment
 #export LANG=en_US.UTF-8
+export LANG=zh_CN.UTF-8
 
 ## Preferred editor for local and remote sessions
 ## if [[ -n $SSH_CONNECTION ]]; then
@@ -80,11 +81,14 @@ source $ZSH/oh-my-zsh.sh
 ## For a full list of active aliases, run `alias`.
 ##
 ## Example aliases
-## alias zshconfig="mate ~/.zshrc"
-## alias ohmyzsh="mate ~/.oh-my-zsh"
+alias zshconfig="vi ~/.zshrc"
+alias ohmyzsh="vi ~/.oh-my-zsh"
+alias reloadzsh="source ~/.zshrc"
 
 #alias vim="/usr/local/bin/vim"
 alias vi="/usr/local/bin/vim"
+alias sl="ls"
+alias ks="ls"
 
 #export NVM_DIR="/Users/yfwang/.nvm"
 #[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
@@ -108,9 +112,6 @@ setjdk() {
 }
 
 export PATH=$PATH:/Applications/Postgres.app/Contents/Versions/9.4/bin
-#export DOCKER_HOST=tcp://192.168.59.103:2376
-#export DOCKER_CERT_PATH=/Users/yfwang/.boot2docker/certs/boot2docker-vm
-#export DOCKER_TLS_VERIFY=1
 
 export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"
@@ -125,12 +126,9 @@ eval "$(thefuck --alias)"
 # You can use whatever you want as an alias, like for Mondays:
 eval "$(thefuck --alias FUCK)"
 
-#eval "$(docker-machine env dev)"
 . ~/.nvm/nvm.sh
 
-#export JAVA_OPTS="-Dfile.encoding=UTF8 -Dspring.profiles.active=dev"
 export JAVA_OPTS="-Dspring.profiles.active=dev -Dorg.apache.catalina.session.StandardSession.ACTIVITY_CHECK=true -Dfile.encoding=UTF8 -Djava.awt.headless=true -server -Xms512m -Xmx2048m -XX:NewSize=1m -XX:MaxNewSize=1536m -XX:PermSize=512m -XX:MaxPermSize=1024m -XX:+DisableExplicitGC"
-#export JAVA_OPTS="-Dspring.profiles.active=dev -Dorg.apache.catalina.session.StandardSession.ACTIVITY_CHECK=true -Dfile.encoding=UTF8 -Djava.awt.headless=true -server -Xms512m -Xmx2048m -XX:NewSize=1m -XX:MaxNewSize=1536m -XX:PermSize=512m -XX:MaxPermSize=1024m -XX:+DisableExplicitGC"
 export CATALINA_OPTS="-Dorg.apache.catalina.session.StandardSession.ACTIVITY_CHECK=true"
 
 MYSQL=/usr/local/mysql/bin
@@ -140,4 +138,13 @@ export DYLD_LIBRARY_PATH=/usr/local/mysql/lib:$DYLD_LIBRARY_PATH
 [[ -s $(brew --prefix)/etc/profile.d/autojump.sh ]] && . $(brew --prefix)/etc/profile.d/autojump.sh
 
 export ANDROID_HOME=/usr/local/opt/android-sdk
+
 export EDITOR='vim'
+
+export PATH="$HOME/.jenv/bin:$PATH"
+eval "$(jenv init -)"
+eval "$(rbenv init -)"
+#eval "$(docker-machine env stand)"
+
+#export PYENV_ROOT=/usr/local/var/pyenv
+#if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
